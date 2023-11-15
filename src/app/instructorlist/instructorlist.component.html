@@ -1,0 +1,11 @@
+<div class="cards">
+    <ng-container *ngFor="let item of data">
+            <div class="card-header" >
+            <h3 class="card-title">{{ item.numInstructor }}</h3>
+        </div>
+        <div class="card-body">
+            <p class="card-text">firstName: {{ item.firstName }} | lastName: {{item.lastName}}</p>
+            <p class="card-info">date of hire: {{ item.dateofhire }} </p>
+        </div>
+</ng-container>
+</div>

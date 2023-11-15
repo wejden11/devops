@@ -1,0 +1,41 @@
+<button class="btn btn-round btn-sm btn-success" (click)="open(mymodal)" title="Add Item">+</button>
+<ng-template #mymodal let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Add new Product</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true" (click)="cancel()">×</span>
+        </button>
+
+    </div>    
+    <div class="center">
+        <form class="styled-form">
+            <div class="form-group">
+                <label for="numInstructor">Num Instructor</label>
+                <input type="number" class="form-control" id="numInstructor" placeholder="numInstructor" [(ngModel)]="instructor.numInstructor" [ngModelOptions]="{standalone: true}">
+            </div>
+    
+            <div class="form-group">
+                <label for="firstName">First Name</label>
+                <input type="text" class="form-control" id="firstName" placeholder="firstName" [(ngModel)]="instructor.firstName" [ngModelOptions]="{standalone: true}">
+            </div>
+    
+            <div class="form-group">
+                <label for="lastName">Last Name</label>
+                <input type="text" class="form-control" id="lastName" placeholder="lastName" [(ngModel)]="instructor.lastName" [ngModelOptions]="{standalone: true}">
+            </div>
+    
+            <!--div class="form-group">
+                <label for="dateofhire">Date of hire</label>
+                <input type="date" class="form-control" id="dateofhire" placeholder="dateofhire" [(ngModel)]="instructor.dateofhire" >
+            </div-->
+    
+            <div class="form-group">
+                <button type="button" class="btn btn-primary" (click)="addInstructor(instructor)" (click)="modal.close('Save click')">Add</button>
+                <button type="button" class="btn btn-secondary" (click)="modal.close('Save click')">Cancel</button>
+            </div>
+        </form>
+    </div>
+    
+
+</ng-template>
+
