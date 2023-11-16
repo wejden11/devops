@@ -1,23 +1,19 @@
-# Use an official Node runtime as a parent image
-FROM node:20
-
-# Set the working directory in the container
-WORKDIR /usr/src/app
-
-# Copy package.json and package-lock.json to the working directory
-COPY package*.json ./
-
-# Install Angular CLI and dependencies
-RUN npm install -g @angular/cli
-
-# Install app dependencies
-RUN npm install
-
-# Copy the content of the local src directory to the working directory
+### STAGE 1: BUILD ###
+FROM node:20-alpine AS build
+# Create a Virtual directory inside the docker image
+WORKDIR /app
+# Copy files to virtual directory
+COPY package.json package-lock.json ./
+# Run command in Virtual directory
+RUN npm cache clean --force
+# Copy files from local machine to virtual directory in docker image
 COPY . .
+RUN npm install --force
+RUN npm run build --prod
 
-# Expose port 4200 for the Angular app
-EXPOSE 4200
-
-# Command to start the Angular application
-CMD ["ng", "serve", "--host", "0.0.0.0"]
+### STAGE 2: RUN ###
+FROM nginx:alpine
+# Set the working directory
+WORKDIR /usr/share/nginx/html
+# Copy the built Angular app files from the build stage
+COPY --from=build testwejden/dist/testwejden .
