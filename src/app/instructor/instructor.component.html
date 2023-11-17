@@ -1,4 +1,6 @@
 <button class="btn btn-round btn-sm btn-success" (click)="open(mymodal)" title="Add Item">+</button>
+<img src="..\..\assets\ski.jpg" alt="" class="image mr-1 p-2">
+<button type="button" routerLink="/all" class="btn btn-info">Go to list </button>
 <ng-template #mymodal let-modal>
     <div class="modal-header">
         <h4 class="modal-title" id="modal-basic-title">Add new Product</h4>
@@ -9,10 +11,7 @@
     </div>    
     <div class="center">
         <form class="styled-form">
-            <div class="form-group">
-                <label for="numInstructor">Num Instructor</label>
-                <input type="number" class="form-control" id="numInstructor" placeholder="numInstructor" [(ngModel)]="instructor.numInstructor" [ngModelOptions]="{standalone: true}">
-            </div>
+           
     
             <div class="form-group">
                 <label for="firstName">First Name</label>
@@ -24,13 +23,17 @@
                 <input type="text" class="form-control" id="lastName" placeholder="lastName" [(ngModel)]="instructor.lastName" [ngModelOptions]="{standalone: true}">
             </div>
     
-            <!--div class="form-group">
+            <div class="form-group">
                 <label for="dateofhire">Date of hire</label>
-                <input type="date" class="form-control" id="dateofhire" placeholder="dateofhire" [(ngModel)]="instructor.dateofhire" >
-            </div-->
+                <input type="date" class="form-control" id="dateofhire" placeholder="dateofhire" 
+                       [(ngModel)]="instructor.dateofhire" 
+                       [ngModelOptions]="{standalone: true}" 
+                       (change)="formatDate($event)">
+              </div>
+              
     
             <div class="form-group">
-                <button type="button" class="btn btn-primary" (click)="addInstructor(instructor)" (click)="modal.close('Save click')">Add</button>
+                <button type="button" class="btn btn-primary" (click)="addInstructor(instructor)" (click)="modal.close('Save click')" >Add</button>
                 <button type="button" class="btn btn-secondary" (click)="modal.close('Save click')">Cancel</button>
             </div>
         </form>

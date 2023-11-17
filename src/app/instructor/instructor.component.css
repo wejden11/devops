@@ -100,3 +100,19 @@
     justify-content: center;
     align-items: center;
   }
+  .image{
+    height: 820px;
+    width: 1500px;
+    margin-left: 800px;
+    transform: translate(-60%, 5%);
+  }
+  .btn-info{
+    transform: translate(-400%,550%);
+    color: bisque;
+    background-color: rgb(206, 41, 149);
+    border-color:rgb(206, 41, 149) ;
+  }
+ .btn-info:hover{
+  color: rgb(255, 205, 241);
+  background-color: rgb(255, 205, 241);
+ }

@@ -1,0 +1,39 @@
+/* Style de base pour la table */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-family: Arial, sans-serif;
+}
+
+/* Style des en-têtes de colonnes */
+.table th {
+    background-color: #4CAF50;
+    color: white;
+    font-weight: bold;
+    padding: 12px;
+    text-align: left;
+}
+
+/* Style des cellules de données */
+.table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+}
+
+/* Style pour les lignes impaires de la table */
+.table tr:nth-child(odd) {
+    background-color: #f9f9f9;
+}
+
+/* Style pour les liens dans les cellules */
+.table a {
+    color: #3498db;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Style pour les liens au survol */
+.table a:hover {
+    text-decoration: underline;
+}

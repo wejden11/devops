@@ -1,11 +1,9 @@
-<div class="cards">
-    <ng-container *ngFor="let item of data">
-            <div class="card-header" >
-            <h3 class="card-title">{{ item.numInstructor }}</h3>
-        </div>
-        <div class="card-body">
-            <p class="card-text">firstName: {{ item.firstName }} | lastName: {{item.lastName}}</p>
-            <p class="card-info">date of hire: {{ item.dateofhire }} </p>
-        </div>
-</ng-container>
-</div>
+<table class="table">
+    <tr><th>num instructor</th><th>firstname</th><th>lastname</th><th>Date of hire</th></tr>
+    <tr *ngFor="let item of data">
+            <td>{{ item.numInstructor }}</td>
+            <td>{{ item.firstName }}</td>
+            <td>{{item.lastName}}</td> 
+            <td>{{item.dateofhire | date:'yyyy-MM-dd'}}</td>       
+    </tr>
+</table>

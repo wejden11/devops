@@ -17,6 +17,7 @@ ngOnInit(){
 fetchData(){
   this.instructorService.fetchAllData().subscribe((response)=>{
     this.data = response;
+    dateOfHire: new Date(response.dateOfHire)
   });
 }
 }
